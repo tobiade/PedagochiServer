@@ -21,11 +21,49 @@
   </parent>
 
   <dependencies>
+      <!-- Guava -->
+      <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>19.0</version>
+      </dependency>
+      <!-- http://mvnrepository.com/artifact/commons-io/commons-io -->
+      <dependency>
+          <groupId>commons-io</groupId>
+          <artifactId>commons-io</artifactId>
+          <version>2.5</version>
+      </dependency>
+
+      <!-- http://mvnrepository.com/artifact/org.apache.lucene/lucene-analyzers-common -->
+      <dependency>
+          <groupId>org.apache.lucene</groupId>
+          <artifactId>lucene-analyzers-common</artifactId>
+          <version>6.0.0</version>
+      </dependency>
+
+      <!-- http://mvnrepository.com/artifact/org.apache.lucene/lucene-core -->
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-core</artifactId>
+      <version>6.0.0</version>
+    </dependency>
+
+    <!-- jdeffered-->
+    <dependency>
+      <groupId>org.jdeferred</groupId>
+      <artifactId>jdeferred-core</artifactId>
+      <version>1.2.4</version>
+    </dependency>
     <!-- Firebase -->
     <dependency>
       <groupId>com.firebase</groupId>
       <artifactId>firebase-client-jvm</artifactId>
       <version>[2.5.2,)</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.firebase</groupId>
+      <artifactId>firebase-server-sdk</artifactId>
+      <version>3.0.0</version>
     </dependency>
     <!-- Spring -->
     <dependency>
