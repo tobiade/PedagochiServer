@@ -1,8 +1,10 @@
 package com.pedagochi.informationmodels;
 
+import com.google.firebase.database.ServerValue;
 import com.pedagochi.utils.PedagochiUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +20,8 @@ public class CarbsRelatedInfo implements Info {
     private String user_context;
     private String id;
     private Map<String, SeenByUser> seenBy;
+    private HashMap<String, Object> timestampCreated;
+
 
     public Map<String, SeenByUser> getSeenBy() {
         return seenBy;
@@ -81,6 +85,14 @@ public class CarbsRelatedInfo implements Info {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public HashMap<String, Object> getTimestampCreated() {
+        return timestampCreated;
+    }
+
+    public void setTimestampCreated(HashMap<String, Object> timestampCreated) {
+        this.timestampCreated = timestampCreated;
     }
 
     public String infoSeenByUsers(){

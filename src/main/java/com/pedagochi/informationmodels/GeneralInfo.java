@@ -2,6 +2,7 @@ package com.pedagochi.informationmodels;
 
 import com.pedagochi.utils.PedagochiUtils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -16,6 +17,8 @@ public class GeneralInfo implements Info {
     private String user_context;
     private String id;
     private Map<String, SeenByUser> seenBy;
+    private HashMap<String, Object> timestampCreated;
+
 
     public Map<String, SeenByUser> getSeenBy() {
         return seenBy;
@@ -85,5 +88,13 @@ public class GeneralInfo implements Info {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public HashMap<String, Object> getTimestampCreated() {
+        return timestampCreated;
+    }
+
+    public void setTimestampCreated(HashMap<String, Object> timestampCreated) {
+        this.timestampCreated = timestampCreated;
     }
 }

@@ -1,18 +1,16 @@
 package com.pedagochi.informationmodels;
 
-import java.util.HashMap;
-
 /**
  * Created by Tobi on 5/27/2016.
  */
 public class SeenDocument {
-    private String documentId;
+    private String id;
 
-    public String getDocumentId() {
-        return documentId;
+    public String getId() {
+        return id;
     }
 
-    public void setDocumentId(String documentId) {
-        this.documentId = documentId;
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -1,5 +1,6 @@
 package com.pedagochi.informationmodels;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -39,4 +40,9 @@ public interface Info {
      void setSeenBy(Map<String, SeenByUser> seenBy);
 
      String infoSeenByUsers();
+
+     HashMap<String, Object> getTimestampCreated();
+
+     void setTimestampCreated(HashMap<String, Object> timestampCreated);
+
 }

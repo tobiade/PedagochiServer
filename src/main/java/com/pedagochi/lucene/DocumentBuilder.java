@@ -87,6 +87,8 @@ public class DocumentBuilder {
             document.add(infoType);
             Field information = new StoredField(LuceneConstants.INFORMATION, info.getInformation());
             document.add(information);
+            Field url = new StoredField(LuceneConstants.URL, info.getUrl());
+            document.add(url);
             Field locationContext = new TextField(LuceneConstants.LOCATION_CONTEXT, info.getLocation_context(), Field.Store.YES);
             document.add(locationContext);
             Field timeContext = new TextField(LuceneConstants.TIME_CONTEXT, info.getTime_context(), Field.Store.YES);
@@ -113,6 +115,8 @@ public class DocumentBuilder {
         document.add(infoType);
         Field information = new StoredField(LuceneConstants.INFORMATION, info.getInformation());
         document.add(information);
+        Field url = new StoredField(LuceneConstants.URL, info.getUrl());
+        document.add(url);
         Field locationContext = new TextField(LuceneConstants.LOCATION_CONTEXT, info.getLocation_context(), Field.Store.YES);
         document.add(locationContext);
         Field timeContext = new TextField(LuceneConstants.TIME_CONTEXT, info.getTime_context(), Field.Store.YES);

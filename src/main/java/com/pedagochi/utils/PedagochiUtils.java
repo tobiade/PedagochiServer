@@ -34,7 +34,7 @@ public class PedagochiUtils {
 //        Iterator<HashMap.Entry<String, SeenDocument>> iterator = seenDocumentHashMap.entrySet().iterator() ;
 //        while(iterator.hasNext()){
 //            HashMap.Entry<String, SeenDocument> entry = iterator.next();
-//            String newKey = entry.getValue().getDocumentId();
+//            String newKey = entry.getValue().getId();
 //            newMap.put(newKey, entry.getValue());
 //
 //
@@ -42,7 +42,7 @@ public class PedagochiUtils {
         for (Map.Entry<String, SeenDocument> entry : seenDocumentHashMap.entrySet()) {
 //            String key = entry.getKey();
 //            Object value = entry.getValue();
-            String newKey = entry.getValue().getDocumentId();
+            String newKey = entry.getValue().getId();
             newMap.put(newKey, entry.getValue());
             // ...
         }

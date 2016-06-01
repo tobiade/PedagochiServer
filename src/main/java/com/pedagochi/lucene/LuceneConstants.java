@@ -11,5 +11,7 @@ public class LuceneConstants {
     public static final String INFORMATION = "information";
     public static final String SEEN_BY = "seen_by";
     public static final String ID = "id";
+    public static final String URL = "url";
+
 
 }

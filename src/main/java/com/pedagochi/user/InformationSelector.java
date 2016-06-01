@@ -1,5 +1,6 @@
 package com.pedagochi.user;
 
+import com.google.firebase.database.ServerValue;
 import com.pedagochi.firebase.FirebaseDataService;
 import com.pedagochi.informationmodels.*;
 import com.pedagochi.lucene.LuceneConstants;
@@ -89,7 +90,10 @@ public class InformationSelector {
 //        info.setLocation_context(document.get(LuceneConstants.LOCATION_CONTEXT));
         info.setId(document.get(LuceneConstants.ID));
         info.setInformation(document.get(LuceneConstants.INFORMATION));
-
+        info.setUrl(document.get(LuceneConstants.URL));
+        HashMap<String, Object> timestampNow = new HashMap<String, Object>();
+        timestampNow.put("timestamp",ServerValue.TIMESTAMP);
+        info.setTimestampCreated(timestampNow);
     }
 
 }
