@@ -21,6 +21,18 @@
   </parent>
 
   <dependencies>
+      <!-- http://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-stable -->
+      <dependency>
+          <groupId>nz.ac.waikato.cms.weka</groupId>
+          <artifactId>weka-stable</artifactId>
+          <version>3.6.10</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.lucene</groupId>
+          <artifactId>lucene-classification</artifactId>
+          <version>6.0.1</version>
+      </dependency>
       <!-- Guava -->
       <dependency>
           <groupId>com.google.guava</groupId>
