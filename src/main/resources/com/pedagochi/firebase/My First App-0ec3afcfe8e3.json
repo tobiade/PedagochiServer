@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "brilliant-torch-960",
+  "private_key_id": "0ec3afcfe8e3bb87f1ff366e2e0606e475c493fd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCLXjzRUC2Z1pF7\nTGfwpfpYbBIgyNPYZBYqZLEwGzKrUaBBNrV/psnD6ZJ337cZo0QhcwJ3CnGBUJ22\nyZJOJUitGfD6tBOAFeJ3QRZHXm5BU6iknyk3FOXBWXOnfWlIpnY3zcoQTPqVJLIz\n1bmetgLq+tv20Tli6uMERe6nkyvZ3FK8J3nMpgggFUoBPxJIyF715B80xX4pCD80\ntN7QqPuziLQOn+KRKSlRFkpd7sZuv//Aly+oFlH2LqMDBmiiaXgpJEWf9QjqWpKO\nPGzH9sK5fOkGNMSDbRaVxWcgDWuUriXQ5mpOwOBeG+5cykwV/A0hq6FF/rHC0Stz\n9D+HJ/ppAgMBAAECggEAQ5nhbDI0/FL83E7SeAM6bJt3K5neUC80JToUTF5U9I6y\nag+MeC/B3Jq2ZhkI6pGsIYF056MULYKaDai2o9sn5ncX0bN5Zf63i9rxYIrodh2L\nRtbBGiuzylaGZ+7IG+pKm4Thh4ifX6qeGdCIqfhlb+9gtNcFu/ptRYxaV8RmV9Ts\nwR4Si72XUTSe5C1p/sheTzCpSqKfPjmV+JnoLF8/+9OtAzhQo526s8dyWtMzozTe\nmhjcqGOoHonxEf+/3eBVwTdUQYt2mrdIsgWP47ypp0mGzpEdBOlnoX69HbTEq3Ft\ni7isRUZpf/Khtu7+ZN3Wp2h08/hOWaAKjYbtJRQ9gQKBgQD9bqoNsulwzkmZwFTX\nFqvZqjP4YhYVoOHylo7n7yipx39+oZMpqe3GFLBcC3+9HfZAZ94s/ysg33MG9eHO\nVL8k67kT1CsdZ2MOMJ6C9fibYLQiapxosX14QlCW/dibyAPdKgtFZ0svunGKytPQ\n3BTM88rweOWLVT4wTooMdNd20QKBgQCMx7ilwRIpsb2konOfsFUwilNJmAkAAwqS\nJY/pq+madraNj1hfzebqhh+DeKY2Zs8pIeKpujjoewBi3eOK9xnW4zccfyIwVPn8\nbUk+aFsXZN7bTbK6VL9FdfoaXx7xzEcgRbfAN3Y3G2oD4wDmQMVPjPOi/JXVbCVF\nsGphGl9gGQKBgQCRyE3UEX3NYSzfX86t56G1VP4OPEYd7OzsggT0kBNhDpxdeI5R\n4ikfz5jfadHyNMEJrXYVhjcF8uOVNm3NJdzKXTqamGqwwF8vs3ILPXjj0E3umksc\nwjS9r8/x+1XVzsnCOERBiTir3OEhiKkttNvWRcsQZ0sLyl46pYMtxSyIcQKBgFmZ\nd7TPN+8fd9LDrhFRmjalozKwt/Gw/dZcX8baKnir264nMJjxJGnZaU80x5zSPEEy\nlt9tbXDRcEJ8dKjqciCpRlc1tx3Jx71YFQjKREeUZJ5xSjJ7Y60i1EZaighc+lvY\n44VMB0o1gXjtzpG9YZcq35m5ZueJyAMdr+cTcOZpAoGBAL5KflEqAvyH4V8R78GY\nm0gMWH5HrwWMPuLraGCUUkDG3yBrk1Qx2hu91LLQEIOR5OBzLCLBY4Z7ElVGwL6l\n1lB+sgUiZSw/B41qjwQojwHQQrYsb7kmyLTZsSkg+43sqozPrDw/9ww3gMiwBBpn\nSrAP/xycBZFDpuxha/6iQe1C\n-----END PRIVATE KEY-----\n",
+  "client_email": "pedagochi@brilliant-torch-960.iam.gserviceaccount.com",
+  "client_id": "111576897469032134418",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pedagochi%40brilliant-torch-960.iam.gserviceaccount.com"
+}
