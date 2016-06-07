@@ -27,7 +27,7 @@ public class IndexWriterConfig {
 
     @Bean
     public IndexWriter indexWriter() throws IOException {
-        FileUtils.cleanDirectory(new File(indexPath));
+        //FileUtils.cleanDirectory(new File(indexPath));
         //Directory indexDir = FSDirectory.open(Paths.get(indexPath));
         //Directory indexDir = new RAMDirectory();
         org.apache.lucene.index.IndexWriterConfig config = new org.apache.lucene.index.IndexWriterConfig(new StandardAnalyzer());
