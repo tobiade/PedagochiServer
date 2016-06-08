@@ -1,9 +1,9 @@
 package com.pedagochi.controllers;
 
 import com.pedagochi.firebase.FirebaseDataService;
-import com.pedagochi.informationmodels.CarbsRelatedInfo;
-import com.pedagochi.informationmodels.Info;
-import com.pedagochi.informationmodels.SeenDocument;
+import com.pedagochi.infomodels.CarbsRelatedInfo;
+import com.pedagochi.infomodels.Info;
+import com.pedagochi.infomodels.SeenDocument;
 import com.pedagochi.lucene.ContextMatcher;
 import com.pedagochi.lucene.ContextQueryBuilder;
 import com.pedagochi.lucene.LuceneConstants;
@@ -67,6 +67,8 @@ public class Controller {
                         IndexSearcher indexSearcher = contextMatcher.getIndexSearcher();
 
                         Info info = informationSelector.returnUnseenDocuent(seenDocumentHashMap, documents, userModel.getInfoType().get(0));
+
+
 
                         for (ScoreDoc document : documents) {
                             int docId = document.doc;

@@ -2,7 +2,7 @@ package com.pedagochi.user;
 
 import com.google.firebase.database.ServerValue;
 import com.pedagochi.firebase.FirebaseDataService;
-import com.pedagochi.informationmodels.*;
+import com.pedagochi.infomodels.*;
 import com.pedagochi.lucene.LuceneConstants;
 import com.pedagochi.utils.PedagochiUtils;
 import org.apache.lucene.document.Document;

@@ -1,4 +1,4 @@
-package com.pedagochi.informationmodels;
+package com.pedagochi.infomodels;
 
 /**
  * Created by Tobi on 5/27/2016.

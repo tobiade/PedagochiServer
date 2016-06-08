@@ -1,7 +1,8 @@
 package com.pedagochi.utils;
 
-import com.pedagochi.informationmodels.SeenByUser;
-import com.pedagochi.informationmodels.SeenDocument;
+
+import com.pedagochi.infomodels.SeenByUser;
+import com.pedagochi.infomodels.SeenDocument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

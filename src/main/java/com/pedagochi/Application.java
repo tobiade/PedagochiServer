@@ -6,7 +6,7 @@ import com.pedagochi.classifier.PedagochiClassifier;
 import com.pedagochi.classifier.WekaClassifier;
 import com.pedagochi.config.FirebasePedagochiAppConfig;
 import com.pedagochi.firebase.FirebaseDataService;
-import com.pedagochi.informationmodels.CarbsRelatedInfo;
+import com.pedagochi.infomodels.CarbsRelatedInfo;
 import com.pedagochi.lucene.DocumentBuilder;
 import com.pedagochi.lucene.DocumentUpdater;
 import com.pedagochi.lucene.LuceneConstants;

@@ -1,8 +1,8 @@
 package com.pedagochi.firebase;
 
 import com.google.firebase.database.*;
-import com.pedagochi.informationmodels.Info;
-import com.pedagochi.informationmodels.SeenDocument;
+import com.pedagochi.infomodels.Info;
+import com.pedagochi.infomodels.SeenDocument;
 import org.jdeferred.Deferred;
 import org.jdeferred.Promise;
 import org.jdeferred.impl.DeferredObject;

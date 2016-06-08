@@ -1,17 +1,14 @@
-package com.pedagochi.informationmodels;
+package com.pedagochi.infomodels;
 
-import com.google.firebase.database.ServerValue;
 import com.pedagochi.utils.PedagochiUtils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created by Tobi on 5/24/2016.
  */
-public class CarbsRelatedInfo implements Info {
+public class ExerciseRelatedInfo implements Info {
     private String info_type;
     private String information;
     private String location_context;
@@ -29,6 +26,12 @@ public class CarbsRelatedInfo implements Info {
 
     public void setSeenBy(Map<String, SeenByUser> seenBy) {
         this.seenBy = seenBy;
+    }
+
+
+    public String infoSeenByUsers() {
+        PedagochiUtils util = new PedagochiUtils();
+        return util.convertMapToString(seenBy);
     }
 
     public String getInfo_type() {
@@ -93,10 +96,5 @@ public class CarbsRelatedInfo implements Info {
 
     public void setTimestampCreated(HashMap<String, Object> timestampCreated) {
         this.timestampCreated = timestampCreated;
-    }
-
-    public String infoSeenByUsers(){
-        PedagochiUtils util = new PedagochiUtils();
-        return util.convertMapToString(seenBy);
     }
 }

@@ -1,4 +1,4 @@
-package com.pedagochi.informationmodels;
+package com.pedagochi.infomodels;
 
 import com.pedagochi.utils.PedagochiUtils;
 
