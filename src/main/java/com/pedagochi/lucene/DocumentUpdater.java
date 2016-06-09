@@ -2,7 +2,7 @@ package com.pedagochi.lucene;
 
 import com.google.firebase.database.DataSnapshot;
 import com.pedagochi.firebase.FirebaseDataService;
-import com.pedagochi.informationmodels.Info;
+import com.pedagochi.infomodels.Info;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;

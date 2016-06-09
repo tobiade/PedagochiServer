@@ -1,5 +1,9 @@
 package com.pedagochi.classifier;
 
+import com.google.firebase.database.DataSnapshot;
+import com.pedagochi.infomodels.GeneralInfo;
+import com.pedagochi.infomodels.Info;
+import com.pedagochi.lucene.LuceneConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import weka.classifiers.Evaluation;
@@ -11,7 +15,10 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.filters.unsupervised.attribute.StringToWordVector;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * Created by Tobi on 6/7/2016.
@@ -38,8 +45,8 @@ public class WekaClassifier {
 
         // Add class attribute.
         FastVector classValues = new FastVector(2);
-        classValues.addElement("pos");
-        classValues.addElement("neg");
+        classValues.addElement("positive");
+        classValues.addElement("negative");
         attributes.addElement(new Attribute("Class", classValues));
 
         // Create dataset with initial capacity of 100, and set index of class.
@@ -104,7 +111,25 @@ public class WekaClassifier {
         return instance;
     }
 
-    public void setupClassificationDataSet(){
+//    public void setupClassificationDataSet(){
+//        // Create vector of attributes.
+//        FastVector attributes = new FastVector(2);
+//
+//        // Add attribute for holding messages.
+//        attributes.addElement(new Attribute("information", (FastVector)null));
+//
+//        // Add class attribute.
+//        FastVector classValues = new FastVector(2);
+//        classValues.addElement("positive");
+//        classValues.addElement("negative");
+//        attributes.addElement(new Attribute("Class", classValues));
+//
+//        // Create dataset with initial capacity of 100, and set index of class.
+//        classificationDataSet = new Instances("classifyDataSet", attributes, 1);
+//        classificationDataSet.setClassIndex(classificationDataSet.numAttributes() - 1);
+//    }
+
+    public void setupClassificationDataSetWithCapacity(int dataSetCapacity){
         // Create vector of attributes.
         FastVector attributes = new FastVector(2);
 
@@ -113,14 +138,30 @@ public class WekaClassifier {
 
         // Add class attribute.
         FastVector classValues = new FastVector(2);
-        classValues.addElement("pos");
-        classValues.addElement("neg");
+        classValues.addElement("positive");
+        classValues.addElement("negative");
         attributes.addElement(new Attribute("Class", classValues));
 
         // Create dataset with initial capacity of 100, and set index of class.
-        classificationDataSet = new Instances("classifyDataSet", attributes, 1);
+        classificationDataSet = new Instances("classifyDataSet", attributes, dataSetCapacity);
         classificationDataSet.setClassIndex(classificationDataSet.numAttributes() - 1);
     }
+
+//    public void setupClassificationDataSetFromFirebase(DataSnapshot o){
+//        DataSnapshot dataSnapshot = (DataSnapshot) o;
+//        for (DataSnapshot parentSnapshot: dataSnapshot.getChildren()) {
+//            for(DataSnapshot childSnapshot: parentSnapshot.getChildren()) {
+//                Info info = childSnapshot.getValue(GeneralInfo.class);
+//
+//
+//
+//
+//
+//            }
+//
+//
+//        }
+//    }
 
     public void addDataForClassification(String infoText){
         Instance instance = makeNewInstance(infoText, classificationDataSet);
@@ -140,5 +181,49 @@ public class WekaClassifier {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Info> classifyList(List<Info> infoList){
+        List<Info> resultList = new ArrayList<>();
+        try {
+            int positiveIndex = 0;
+            int negativeIndex = 1;
+            for(int i = 0; i < infoList.size(); i++){
+                Instance instance = classificationDataSet.instance(i);
+                double prediction = classifier.classifyInstance(instance);
+                log.info("===== Classified instance =====");
+                String predictedClass = classificationDataSet.classAttribute().value((int) prediction);
+                log.info("Class predicted: " + predictedClass);
+                double[] probability = classifier.distributionForInstance(instance);
+//                if (predictedClass.equals("positive")){
+//                    log.info("predicted with probability: "+ Double.toString(probability[positiveIndex]));
+//                }else{
+//                    log.info("predicted with probability: "+ Double.toString(probability[negativeIndex]));
+//
+//                }
+                log.info("predicted with positive probability: "+ Double.toString(probability[positiveIndex]));
+                infoList.get(i).setClassificationProbability(probability[positiveIndex]);
+
+            }
+            resultList = rankListByPositiveProbability(infoList);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resultList;
+
+    }
+
+    private List<Info> rankListByPositiveProbability(List<Info> infoList){
+        List<Info> resultList = infoList.stream()
+                .sorted((i1,i2) -> Double.compare(i2.getClassificationProbability(), i1.getClassificationProbability()))
+                .collect(Collectors.toList());
+
+        for(Info info: resultList){
+            log.info("===ranked info list===");
+            log.info("information: "+info.getInformation());
+            log.info("probability: "+info.getClassificationProbability());
+        }
+        return resultList;
     }
 }

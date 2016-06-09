@@ -105,6 +105,27 @@ public final class FirebaseDataService {
 //        reference.setValue(info);
 //    }
 
+    public Promise getDocumentsRatedByUser(String userId, String category){
+        final Deferred deferred = new DeferredObject();
+        Promise promise = deferred.promise();
+        log.info("Getting documents rated by user from Firebase...");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference().child("users").child(userId).child("ratedDocuments").child(category);
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                deferred.resolve(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                deferred.reject(databaseError);
+            }
+        });
+        return promise;
+    }
+
     public Promise registerSeenDocumentListener(String key){
         final Deferred deferred = new DeferredObject();
         Promise promise = deferred.promise();

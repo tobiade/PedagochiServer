@@ -120,22 +120,22 @@ public class Application {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-        String positive = "pos";
-        String negative = "neg";
-        String msg1 = "Fruit juices can be high in natural sugars and because they have less fibre than the whole fruits, they are not as beneficial. Because you can get through a lot of juice within a relatively short period of time, compared to eating the actual fruit, you may end up loading up with a lot of carbs over that period. Depending on how your diabetes is managed, this can result in your blood glucose levels going up, and may affect your weight in the long term as well.";
-        String msg2 = "A portion of fruit contains about 15-20g carbohydrate on average, which is similar to a slice of bread. To put things in perspective, just a can of cola contains 35g carb and a medium slice of chocolate cake contains 35g of carbs as well. So, if you are looking to reduce your carb intake, with the aim to manage blood glucose levels, the advice is to reduce your intake of foods like ordinary fizzy drinks, cakes, biscuits, chocolate and other snacks.";
-        String msg3 = "Everyone should eat at least five portions of fruit a day. Fresh, frozen, dried and canned fruit in juice and canned vegetables in water all count. Go for a rainbow of colours to get as wide a range of vitamins and minerals as possible.";
-        String msg4 = "It’s a myth that you can’t eat chocolate if you have diabetes, just eat it in moderation, rather than using it to satisfy hunger, and don’t eat a lot in one go as it affects your blood sugar levels.";
-        String classifyText = "Eating fruits and vegetables lowers the risk of developing many health conditions including high blood pressure, heart diseases, strokes, obesity and certain cancers. It’s even more important for people with diabetes to eat more fruits and vegetables as most of these conditions are more likely to affect them. Fruits and vegetables have a good mix of soluble and insoluble fibre which is good for your bowels and general health – so it makes sense to eat more of them.";
-        WekaClassifier classifier = new WekaClassifier();
-        classifier.updateModel(msg1,positive);
-        classifier.updateModel(msg2,positive);
-        classifier.updateModel(msg3,positive);
-        classifier.updateModel(msg4,negative);
-        classifier.train();
-        classifier.setupClassificationDataSet();
-        classifier.addDataForClassification(classifyText);
-        classifier.classify();
+//        String positive = "pos";
+//        String negative = "neg";
+//        String msg1 = "Fruit juices can be high in natural sugars and because they have less fibre than the whole fruits, they are not as beneficial. Because you can get through a lot of juice within a relatively short period of time, compared to eating the actual fruit, you may end up loading up with a lot of carbs over that period. Depending on how your diabetes is managed, this can result in your blood glucose levels going up, and may affect your weight in the long term as well.";
+//        String msg2 = "A portion of fruit contains about 15-20g carbohydrate on average, which is similar to a slice of bread. To put things in perspective, just a can of cola contains 35g carb and a medium slice of chocolate cake contains 35g of carbs as well. So, if you are looking to reduce your carb intake, with the aim to manage blood glucose levels, the advice is to reduce your intake of foods like ordinary fizzy drinks, cakes, biscuits, chocolate and other snacks.";
+//        String msg3 = "Everyone should eat at least five portions of fruit a day. Fresh, frozen, dried and canned fruit in juice and canned vegetables in water all count. Go for a rainbow of colours to get as wide a range of vitamins and minerals as possible.";
+//        String msg4 = "It’s a myth that you can’t eat chocolate if you have diabetes, just eat it in moderation, rather than using it to satisfy hunger, and don’t eat a lot in one go as it affects your blood sugar levels.";
+//        String classifyText = "Eating fruits and vegetables lowers the risk of developing many health conditions including high blood pressure, heart diseases, strokes, obesity and certain cancers. It’s even more important for people with diabetes to eat more fruits and vegetables as most of these conditions are more likely to affect them. Fruits and vegetables have a good mix of soluble and insoluble fibre which is good for your bowels and general health – so it makes sense to eat more of them.";
+//        WekaClassifier classifier = new WekaClassifier();
+//        classifier.updateModel(msg1,positive);
+//        classifier.updateModel(msg2,positive);
+//        classifier.updateModel(msg3,positive);
+//        classifier.updateModel(msg4,negative);
+//        classifier.train();
+//        classifier.setupClassificationDataSet();
+//        classifier.addDataForClassification(classifyText);
+//        classifier.classify();
 
 //        DocumentUpdater updater = ctx.getBean(DocumentUpdater.class);
 //        try {

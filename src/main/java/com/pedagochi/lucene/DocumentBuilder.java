@@ -3,10 +3,10 @@ package com.pedagochi.lucene;
 
 import com.google.firebase.database.DataSnapshot;
 import com.pedagochi.firebase.FirebaseDataService;
-import com.pedagochi.informationmodels.CarbsRelatedInfo;
-import com.pedagochi.informationmodels.ExerciseRelatedInfo;
-import com.pedagochi.informationmodels.GeneralInfo;
-import com.pedagochi.informationmodels.Info;
+import com.pedagochi.infomodels.CarbsRelatedInfo;
+import com.pedagochi.infomodels.ExerciseRelatedInfo;
+import com.pedagochi.infomodels.GeneralInfo;
+import com.pedagochi.infomodels.Info;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StoredField;

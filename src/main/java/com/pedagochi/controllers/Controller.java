@@ -1,7 +1,10 @@
 package com.pedagochi.controllers;
 
+import com.google.firebase.database.DataSnapshot;
+import com.pedagochi.classifier.WekaClassifier;
 import com.pedagochi.firebase.FirebaseDataService;
 import com.pedagochi.infomodels.CarbsRelatedInfo;
+import com.pedagochi.infomodels.GeneralInfo;
 import com.pedagochi.infomodels.Info;
 import com.pedagochi.infomodels.SeenDocument;
 import com.pedagochi.lucene.ContextMatcher;
@@ -66,29 +69,74 @@ public class Controller {
 
                         IndexSearcher indexSearcher = contextMatcher.getIndexSearcher();
 
-                        Info info = informationSelector.returnUnseenDocuent(seenDocumentHashMap, documents, userModel.getInfoType().get(0));
+                        //Info info = informationSelector.returnUnseenDocuent(seenDocumentHashMap, documents, userModel.getInfoType().get(0));
+
+                        List<Info> infoList = informationSelector.returnDocListForClassification(seenDocumentHashMap, documents, userModel.getInfoType().get(0));
+
+                        dataService.getDocumentsRatedByUser(userModel.getUserId()).done(new DoneCallback() {
+                            @Override
+                            public void onDone(Object o) {
+                                    DataSnapshot dataSnapshot = (DataSnapshot) o;
+                                     WekaClassifier classifier = new WekaClassifier();
+                                    for (DataSnapshot parentSnapshot: dataSnapshot.getChildren()) {
+                                        for(DataSnapshot childSnapshot: parentSnapshot.getChildren()) {
+                                            Info info = childSnapshot.getValue(GeneralInfo.class);
+                                            classifier.updateModel(info.getInformation(), info.getRating());
+                                        }
+
+                                    }
+                                classifier.train();
+                                classifier.setupClassificationDataSetWithCapacity(infoList.size());
+
+                                for(Info info: infoList){
+                                    classifier.addDataForClassification(info.getInformation());
+                                }
+                                List<Info> resultList = classifier.classifyList(infoList);
+
+                                if (resultList.size() > 0){
+                                    Info topRankedInfo = resultList.get(0);
+                                    dataService.addDocumentToUserPortfolio(userModel.getUserId(),topRankedInfo);
+
+                                }else{
+                                  //give random implementation and set information field as below
+                                    Info info = new CarbsRelatedInfo();
+                                    info.setInformation("No information");
+                                    dataService.addDocumentToUserPortfolio(userModel.getUserId(), info);
+                                }
 
 
+                            }
+                        });
 
-                        for (ScoreDoc document : documents) {
-                            int docId = document.doc;
-                            Document resolvedDocument = indexSearcher.doc(docId);
-                            Explanation explanation = indexSearcher.explain(booleanQuery.build(), docId);
-                            log.info(explanation.toString());
-
-                            log.info("Info type: "+resolvedDocument.get(LuceneConstants.INFO_TYPE));
-                            log.info("User Context: "+resolvedDocument.get(LuceneConstants.USER_CONTEXT));
-                            log.info("Location Context: "+resolvedDocument.get(LuceneConstants.LOCATION_CONTEXT));
-                            log.info("TimeContext: "+resolvedDocument.get(LuceneConstants.TIME_CONTEXT));
-                            log.info("Information: "+resolvedDocument.get(LuceneConstants.INFORMATION));
+                        for(Info info: infoList){
+                            log.info("doc is -> "+info.getInformation());
+                            log.info("score is -> "+info.getLuceneScore());
                         }
-                        if (info != null) {
-                            dataService.addDocumentToUserPortfolio(userModel.getUserId(),info);
-                        }else{
-                            //give it random implementation and set information field as below
-                            info = new CarbsRelatedInfo();
-                            info.setInformation("No information");
-                        }
+
+
+
+
+
+
+//                        for (ScoreDoc document : documents) {
+//                            int docId = document.doc;
+//                            Document resolvedDocument = indexSearcher.doc(docId);
+//                            Explanation explanation = indexSearcher.explain(booleanQuery.build(), docId);
+//                            log.info(explanation.toString());
+//
+//                            log.info("Info type: "+resolvedDocument.get(LuceneConstants.INFO_TYPE));
+//                            log.info("User Context: "+resolvedDocument.get(LuceneConstants.USER_CONTEXT));
+//                            log.info("Location Context: "+resolvedDocument.get(LuceneConstants.LOCATION_CONTEXT));
+//                            log.info("TimeContext: "+resolvedDocument.get(LuceneConstants.TIME_CONTEXT));
+//                            log.info("Information: "+resolvedDocument.get(LuceneConstants.INFORMATION));
+//                        }
+//                        if (info != null) {
+//                            dataService.addDocumentToUserPortfolio(userModel.getUserId(),info);
+//                        }else{
+//                            //give it random implementation and set information field as below
+//                            info = new CarbsRelatedInfo();
+//                            info.setInformation("No information");
+//                        }
 
 
 

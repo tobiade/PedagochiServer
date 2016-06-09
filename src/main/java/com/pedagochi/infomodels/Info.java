@@ -45,4 +45,15 @@ public interface Info {
 
      void setTimestampCreated(HashMap<String, Object> timestampCreated);
 
+     float getLuceneScore();
+
+     void setLuceneScore(float luceneScore);
+
+     double getClassificationProbability();
+
+     void setClassificationProbability(double classificationProbability);
+
+     String getRating();
+
+     void setRating(String rating);
 }

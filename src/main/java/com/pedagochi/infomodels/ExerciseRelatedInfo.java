@@ -18,7 +18,33 @@ public class ExerciseRelatedInfo implements Info {
     private String id;
     private Map<String, SeenByUser> seenBy;
     private HashMap<String, Object> timestampCreated;
+    private float luceneScore;
+    private double classificationProbability;
+    private String rating;
 
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public double getClassificationProbability() {
+        return classificationProbability;
+    }
+
+    public void setClassificationProbability(double classificationProbability) {
+        this.classificationProbability = classificationProbability;
+    }
+
+    public float getLuceneScore() {
+        return luceneScore;
+    }
+
+    public void setLuceneScore(float luceneScore) {
+        this.luceneScore = luceneScore;
+    }
 
     public Map<String, SeenByUser> getSeenBy() {
         return seenBy;
